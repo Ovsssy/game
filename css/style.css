@@ -1,0 +1,266 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-color: #67c7ff;
+}
+body.no-scroll {
+  overflow: hidden;
+}
+
+p,
+span,
+a,
+input,
+div,
+button {
+  font-family: "HachiMaruPop";
+  color: #003143;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: "LTSuperior";
+}
+
+:where(ul, ol):where([class]) {
+  padding-left: 0;
+}
+
+body,
+:where(blockquote, figure):where([class]) {
+  margin: 0;
+}
+
+:where(h1, h2, h3, h4, h5, h6, p, ul, ol, dl):where([class]) {
+  margin-block: 0;
+  font-size: inherit;
+}
+
+:where(dd[class]) {
+  margin-left: 0;
+}
+
+:where(fieldset[class]) {
+  margin-left: 0;
+  padding: 0;
+  border: none;
+}
+
+:where(ul[class]) {
+  list-style: none;
+}
+
+p {
+  margin-block: 0;
+}
+
+img {
+  display: block;
+}
+
+input,
+textarea,
+select,
+button {
+  font: inherit;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+}
+
+@font-face {
+  font-family: "HachiMaruPop";
+  src: local("HachiMaruPop"), local("HachiMaruPop"), url("../fonts/HachiMaruPop-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+.game {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100dvh;
+}
+.game__area {
+  position: relative;
+  display: block;
+  width: 800px;
+  height: 800px;
+  background-color: #E0F7FA;
+  border: 2px solid #0b92d1;
+  box-shadow: 0px -5px 30px rgba(11, 146, 209, 0.5);
+}
+.game__settings {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20px;
+  width: 365px;
+  height: 800px;
+  padding: 20px;
+}
+.game__settings-text-colors {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.game__settings-button {
+  opacity: 0;
+  transition: all 0.3s;
+}
+.game__settings-button--active {
+  opacity: 1;
+  cursor: pointer;
+}
+.game__settings-text {
+  font-size: 20px;
+  text-transform: uppercase;
+  color: #333333;
+}
+.game__square {
+  position: absolute;
+  display: block;
+  width: 75px;
+  height: 75px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+.game__square--first {
+  top: 100px;
+  left: 100px;
+}
+.game__square--second {
+  top: 625px;
+  left: 625px;
+}
+.game__square:hover {
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+.game__colors {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+.game__colors-item {
+  display: flex;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  opacity: 0;
+  transition: all 0.2s ease-in-out;
+}
+.game__colors-item:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+.game__colors-item--active {
+  opacity: 1;
+}
+.game__group {
+  position: absolute;
+}
+.game__group-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+[data-color-item="1"] {
+  background-color: rgb(230, 57, 70);
+  border: 2px solid rgb(191, 48, 59);
+}
+
+[data-color-item="2"] {
+  background-color: rgb(157, 78, 221);
+  border: 2px solid rgb(115, 44, 176);
+}
+
+[data-color-item="3"] {
+  background-color: rgb(155, 197, 61);
+  border: 2px solid rgb(109, 138, 40);
+}
+
+[data-color-item="4"] {
+  background-color: rgb(61, 52, 139);
+  border: 2px solid rgb(42, 39, 104);
+}
+
+[data-color-item="5"] {
+  background-color: rgb(255, 186, 8);
+  border: 2px solid rgb(217, 155, 7);
+}
+
+.btn {
+  position: relative;
+  display: inline-block;
+  padding: 15px 40px;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: none;
+  border-radius: 100px;
+  transition: all 0.2s;
+}
+.btn-white {
+  background-color: #fff;
+  color: #003143;
+}
+.btn-white::after {
+  background-color: #fff;
+}
+.btn-animated {
+  animation: moveInBottom 5s ease-out;
+  animation-fill-mode: backwards;
+}
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+.btn:hover::after {
+  transform: scaleX(1.4) scaleY(1.6);
+  opacity: 0;
+}
+.btn:active {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+.btn::after {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  border-radius: 100px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: all 0.4s;
+}
+
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}/*# sourceMappingURL=style.css.map */

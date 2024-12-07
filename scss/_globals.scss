@@ -1,0 +1,24 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background-color: #67c7ff;
+
+    &.no-scroll {
+        overflow: hidden;
+    }
+}
+
+p,
+span,
+a,
+input,
+div,
+button {
+    font-family: 'HachiMaruPop';
+    color: #003143;
+}

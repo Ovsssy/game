@@ -1,0 +1,107 @@
+.game {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100dvh;
+
+    &__area {
+        position: relative;
+        display: block;
+        width: 800px;
+        height: 800px;
+        background-color: #E0F7FA;
+        border: 2px solid #0b92d1;
+        box-shadow: 0px -5px 30px rgb(11, 146, 209, 0.5);
+    }
+
+    &__settings {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 20px;
+        width: 365px;
+        height: 800px;
+        padding: 20px;
+
+        &-text-colors{
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        &-button{
+            opacity: 0;
+            transition: all 0.3s;
+
+            &--active{
+                opacity: 1;
+                cursor: pointer;
+            }
+        }
+
+        &-text{
+            font-size: 20px;
+            text-transform: uppercase;
+            color: #333333;
+        }
+        
+    }
+
+    &__square {
+        position: absolute;
+        display: block;
+        width: 75px;
+        height: 75px;
+        cursor: pointer;
+        transition: all 0.2s ease-in-out;
+
+        &--first {
+            top: 100px;
+            left: 100px;
+        }
+
+        &--second {
+            top: 625px;
+            left: 625px;
+        }
+
+        &:hover {
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+        }
+    }
+
+    &__colors {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+
+        &-item {
+            display: flex;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            opacity: 0;
+            transition: all 0.2s ease-in-out;
+
+            &:hover {
+                transform: scale(1.1);
+                box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+            }
+
+            &--active {
+                opacity: 1;
+            }
+        }
+    }
+
+    &__group {
+        position: absolute;
+
+        &-wrapper {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
